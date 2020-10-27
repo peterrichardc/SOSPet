@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.labsidea.mypetapp.R
 import com.labsidea.mypetapp.data.model.User
 import com.labsidea.mypetapp.ui.base.ViewModelFactory
@@ -21,9 +22,34 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainViewModel: MainViewModel
     private lateinit var adapter: MainAdapter
 
+    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        when (item.itemId) {
+            R.id.menuHome -> {
+                //TODO
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.menuEvents -> {
+
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.menuProfile -> {
+                //TODO
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.menuOthers -> {
+
+                //TODO
+                return@OnNavigationItemSelectedListener true
+            }
+        }
+        false
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         setupUI()
         setupViewModel()
@@ -57,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                     recyclerView.visibility = View.GONE
                 }
                 RequestStatus.ERROR -> {
-                    //Handle Error
+                    //TODO -  Handle Error in just one Class.
                     progressBar.visibility = View.GONE
 
                     Toast.makeText(this, it.messageError, Toast.LENGTH_LONG).show()
