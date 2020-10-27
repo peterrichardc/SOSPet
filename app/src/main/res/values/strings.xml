@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SOS Pet</string>
+
+    <string name="home_bottomNavigation">Home</string>
+    <string name="events_bottomNavigation">Events</string>
+    <string name="profile_bottomNavigation">Profile</string>
+    <string name="others_bottomNavigation">Others</string>
 </resources>
