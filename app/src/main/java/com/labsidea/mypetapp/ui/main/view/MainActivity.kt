@@ -5,21 +5,23 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.labsidea.mypetapp.R
 import com.labsidea.mypetapp.data.model.User
-import com.labsidea.mypetapp.ui.base.ViewModelFactory
 import com.labsidea.mypetapp.ui.main.adapter.MainAdapter
 import com.labsidea.mypetapp.ui.main.viewmodel.MainViewModel
 import com.labsidea.mypetapp.utils.RequestStatus
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mainViewModel: MainViewModel
+    @Inject lateinit var mainViewModel: MainViewModel
     private lateinit var adapter: MainAdapter
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -52,13 +54,14 @@ class MainActivity : AppCompatActivity() {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         setupUI()
-        setupViewModel()
+
         setupObserver()
     }
 
     private fun setupUI() {
-        recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = MainAdapter()
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
         recyclerView.addItemDecoration(
             DividerItemDecoration(
@@ -95,13 +98,6 @@ class MainActivity : AppCompatActivity() {
     private fun renderList(users: ArrayList<User>) {
         adapter.addData(users)
         adapter.notifyDataSetChanged()
-    }
-
-    private fun setupViewModel() {
-        mainViewModel = ViewModelProviders.of(
-            this,
-            ViewModelFactory()
-        ).get(MainViewModel::class.java)
     }
 }
 

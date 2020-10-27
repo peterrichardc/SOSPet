@@ -9,8 +9,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import java.lang.Exception
+import javax.inject.Inject
 
-class MainViewModel(private val mainRepository: MainRepository): ViewModel(){
+class MainViewModel @Inject constructor(private val mainRepository: MainRepository): ViewModel(){
 
     private val users = MutableLiveData<RequestData<ArrayList<User>>>()
     private val compositeDisposable = CompositeDisposable()
