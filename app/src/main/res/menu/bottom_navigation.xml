@@ -3,23 +3,23 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item   android:id="@+id/menuHome"
-            android:icon="@android:drawable/ic_menu_mapmode"
+            android:icon="@drawable/ic_home"
             android:title="@string/home_bottomNavigation"
             app:showAsAction="ifRoom"/>
 
     <item   android:id="@+id/menuEvents"
-            android:icon="@android:drawable/ic_menu_mapmode"
+            android:icon="@drawable/ic_events"
             android:title="@string/events_bottomNavigation"
             app:showAsAction="ifRoom"/>
 
     <item   android:id="@+id/menuProfile"
-            android:icon="@android:drawable/ic_menu_mapmode"
+            android:icon="@drawable/ic_profile"
             android:title="@string/profile_bottomNavigation"
             app:showAsAction="ifRoom"/>
 
 
     <item   android:id="@+id/menuOthers"
-            android:icon="@android:drawable/ic_menu_mapmode"
+            android:icon="@drawable/ic_others"
             android:title="@string/others_bottomNavigation"
             app:showAsAction="ifRoom"/>
 </menu>

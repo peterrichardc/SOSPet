@@ -33,6 +33,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:menu="@menu/bottom_navigation"
             app:labelVisibilityMode="labeled"
-            app:itemTextColor="@color/blackLight"/>
+            app:itemIconTint="@color/bottom_nagivation"
+            app:itemTextColor="@color/bottom_nagivation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
