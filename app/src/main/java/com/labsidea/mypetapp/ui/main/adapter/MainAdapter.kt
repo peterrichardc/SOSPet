@@ -35,7 +35,9 @@ class MainAdapter(private val users: ArrayList<User> = arrayListOf()): RecyclerV
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) = holder.bind(users[position])
 
-    fun addData(list: ArrayList<User>) {
+    fun addData(list: ArrayList<User>): MainAdapter  {
         users.addAll(list)
+
+        return this
     }
 }
